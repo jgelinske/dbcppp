@@ -10,6 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: |       
+    apt update
+    apt-get install boost-dev
+  displayName: 'install deps'
 - task: CMake@1
   inputs:
     cmakeArgs: '-DCMAKE_BUILD_TYPE=Release ..'
